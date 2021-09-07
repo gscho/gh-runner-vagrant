@@ -9,6 +9,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "shell", inline: "sudo apt-get update -y && sudo apt-get install -y jq && sudo rm -rf ./runner"
+  
   args = "-s #{ENV['SCOPE']}"
   args << " -g #{ENV['GHE_HOSTNAME']}" if ENV['GHE_HOSTNAME']
   args << " -n #{ENV['RUNNER_NAME']}" if ENV['RUNNER_NAME']
